@@ -31,3 +31,8 @@ Run the following command in the terminal:
 
 ### Optional:
 If you want to inspect your clusters, you can download [k9s](https://k9scli.io/topics/install/), it's an easy-to-use platform, and it's well documented.
+
+### How to run docker images on local cluster:
+
+- You can follow this [video](https://www.youtube.com/watch?v=S-JNi5A_9-Q) from one of the maintainers of k8s kong
+- Also, the next [link](https://dev.to/bytomray/how-to-build-a-nestjs-docker-image-for-production-3cmm) will show you how to build a docker image
