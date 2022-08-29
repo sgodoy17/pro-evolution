@@ -5,7 +5,7 @@ source .env
 
 function create() {
   # CREATE DOCKER REGISTRY
-  echo -e " 👋 creating registry container unless it already exists"
+  echo -e " \033[32m»\033[0m creating registry container unless it already exists"
 
   if [ "$(docker inspect -f '{{.State.Running}}' "${REGISTRY_NAME}" 2>/dev/null || true)" == 'true' ]; then
     echo -e " \033[32m✓\033[0m registry is running"
@@ -20,7 +20,7 @@ function create() {
   fi
 
   # CREATE KIND CLUSTER
-  echo -e " 👋 creating a cluster with the local registry enabled in containerd"
+  echo -e " \033[32m»\033[0m creating a cluster with the local registry enabled in containerd"
 
   cat <<EOF | kind create cluster --config=-
   kind: Cluster
