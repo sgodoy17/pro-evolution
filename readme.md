@@ -34,5 +34,21 @@ If you want to inspect your clusters, you can download [k9s](https://k9scli.io/t
 
 ### How to run docker images on local cluster:
 
-- You can follow this [video](https://www.youtube.com/watch?v=S-JNi5A_9-Q) from one of the maintainers of k8s kong
-- Also, the next [link](https://dev.to/bytomray/how-to-build-a-nestjs-docker-image-for-production-3cmm) will show you how to build a docker image
+- build a docker image (check the Dockerfile in the example folder)
+- you need to build a Dockerfile in the root of the project that you want to test
+- when you are ready, run the following commands on the terminal
+- ```docker build -t sos-callback:0.1 .``` - change sos-callback:0.1 for your project-name:version, this command build the image and set up for docker for testing
+- ```docker run -p127.0.0.1:8081:8081 --rm --net=bind --name sos-callback sos-callback``` - this is optional, only if you want to try a test the application with the docker image 
+- ```docker tag sos-callback:0.1 localhost:5001/sos-callback:0.1``` - with this you are tagging your local image
+- ```docker push localhost:5001/sos-callback:1.0``` - last, we push the tagged image to our local registry
+
+#### NOTE:
+For the case of sos-callback, we need to set up the localstack, you can set up easily with this [repo](https://github.com/sgodoy17/cencodock) that is already configured with the network of this cluster
+
+The default endpoint for this is localhost/127.0.0.1
+
+If you follow all these instructions, you'll probably see something like this:
+
+![01.png](images/01.png)
+
+![02.png](images/02.png)
