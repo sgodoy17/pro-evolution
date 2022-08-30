@@ -51,7 +51,7 @@ example:
 ```yaml
 ...
 containers:
-  - name: sos-callback-service
+  - name: my-project-name
     image: localhost:5001/my-project:0.1
     imagePullPolicy: IfNotPresent
 ...
@@ -78,7 +78,7 @@ kubectl create secret generic my-acl-group-name --from-literal=kongCredType=acl 
 ```
 
 #### NOTE:
-For the case of sos-callback, we need to set up the localstack, you can set up easily with this [repo](https://github.com/sgodoy17/cencodock) that is already configured with the network of this cluster
+For the case of sos-callback api, we need to set up the localstack, you can set up easily with this [repo](https://github.com/sgodoy17/cencodock) that is already configured with the network of this cluster
 
 The default endpoint for this is localhost/127.0.0.1
 
