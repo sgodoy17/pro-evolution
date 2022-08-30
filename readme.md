@@ -44,7 +44,7 @@ If you want to inspect your clusters, you can download [k9s](https://k9scli.io/t
 
 ### How to create api keys on the cluster
 
-You need to run the follow command: ```kubectl create secret generic {name} --from-literal=kongCredType=key-auth --from-literal=key={secre}```, change {name}/{secret} with your owns values
+You need to run the follow command: ```kubectl create secret generic {name} --from-literal=kongCredType=key-auth --from-literal=key={secret}```, change {name}/{secret} with your owns values
 
 example:
 
@@ -54,7 +54,7 @@ kubectl create secret generic my-api-key --from-literal=kongCredType=key-auth --
 
 ### How to create acl groups on the cluster
 
-You need to run the follow command: ```kubectl create secret generic {name} --from-literal=kongCredType=acl --from-literal=group={secre}```, change {name}/{secret} with your owns values
+You need to run the follow command: ```kubectl create secret generic {name} --from-literal=kongCredType=acl --from-literal=group={group}```, change {name}/{group} with your owns values
 
 example:
 
