@@ -42,6 +42,26 @@ If you want to inspect your clusters, you can download [k9s](https://k9scli.io/t
 - ```docker tag sos-callback:0.1 localhost:5001/sos-callback:0.1``` - with this you are tagging your local image
 - ```docker push localhost:5001/sos-callback:1.0``` - last, we push the tagged image to our local registry
 
+### How to create api keys on the cluster
+
+You need to run the follow command: ```kubectl create secret generic {name} --from-literal=kongCredType=key-auth --from-literal=key={secre}```, change {name}/{secret} with your owns values
+
+example:
+
+```
+kubectl create secret generic my-api-key --from-literal=kongCredType=key-auth --from-literal=key=my-api-secre
+```
+
+### How to create acl groups on the cluster
+
+You need to run the follow command: ```kubectl create secret generic {name} --from-literal=kongCredType=acl --from-literal=group={secre}```, change {name}/{secret} with your owns values
+
+example:
+
+```
+kubectl create secret generic my-acl-group-name --from-literal=kongCredType=acl --from-literal=group=my-acl-group
+```
+
 #### NOTE:
 For the case of sos-callback, we need to set up the localstack, you can set up easily with this [repo](https://github.com/sgodoy17/cencodock) that is already configured with the network of this cluster
 
