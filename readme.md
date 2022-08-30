@@ -37,10 +37,25 @@ If you want to inspect your clusters, you can download [k9s](https://k9scli.io/t
 - build a docker image (check the Dockerfile in the example folder)
 - you need to build a Dockerfile in the root of the project that you want to test
 - when you are ready, run the following commands on the terminal
-- ```docker build -t sos-callback:0.1 .``` - change sos-callback:0.1 for your project-name:version, this command build the image and set up for docker for testing
-- ```docker run -p127.0.0.1:8081:8081 --rm --net=bind --name sos-callback sos-callback``` - this is optional, only if you want to try a test the application with the docker image 
-- ```docker tag sos-callback:0.1 localhost:5001/sos-callback:0.1``` - with this you are tagging your local image
-- ```docker push localhost:5001/sos-callback:1.0``` - last, we push the tagged image to our local registry
+- ```docker build -t my-project:0.1 .``` - change my-project:0.1 for your project-name:version, this command build the image and set up for docker for testing
+- ```docker run -p127.0.0.1:8081:8081 --rm --net=bind --name my-project my-project``` - this is optional, only if you want to try a test the application with the docker image 
+- ```docker tag my-project:0.1 localhost:5001/my-project:0.1``` - with this you are tagging your local image
+- ```docker push localhost:5001/my-project:1.0``` - last, we push the tagged image to our local registry
+
+### How to use my docker image with my local cluster
+
+Open the deployment.yml file and change the image for the one that we build early
+
+example:
+
+```yaml
+...
+containers:
+  - name: sos-callback-service
+    image: localhost:5001/my-project:0.1
+    imagePullPolicy: IfNotPresent
+...
+```
 
 ### How to create api keys on the cluster
 
