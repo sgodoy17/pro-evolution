@@ -37,7 +37,7 @@ If you want to inspect your clusters, you can download [k9s](https://k9scli.io/t
 - build a docker image (check the Dockerfile in the example folder)
 - you need to build a Dockerfile in the root of the project that you want to test
 - when you are ready, run the following commands on the terminal
-- ```docker build -t my-project:0.1 .``` - change my-project:0.1 for your project-name:version, this command build the image and set up for docker for testing
+- ```docker build -t my-project:0.1 .``` - change my-project:0.1 for your project-name:version, this command build the image and set up docker for testing
 - ```docker run -p127.0.0.1:8081:8081 --rm --net=bind --name my-project my-project``` - this is optional, only if you want to try a test the application with the docker image 
 - ```docker tag my-project:0.1 localhost:5001/my-project:0.1``` - with this you are tagging your local image
 - ```docker push localhost:5001/my-project:1.0``` - last, we push the tagged image to our local registry
