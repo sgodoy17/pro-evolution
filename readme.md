@@ -63,7 +63,7 @@ You need to run the follow command: ```kubectl create secret generic {name} --fr
 
 example:
 
-```
+```shell
 kubectl create secret generic my-api-key --from-literal=kongCredType=key-auth --from-literal=key=my-api-secre
 ```
 
@@ -73,8 +73,20 @@ You need to run the follow command: ```kubectl create secret generic {name} --fr
 
 example:
 
-```
+```shell
 kubectl create secret generic my-acl-group-name --from-literal=kongCredType=acl --from-literal=group=my-acl-group
+```
+
+### How to apply deployments/services/plugins/ingress on my cluster
+
+If you have an ide from the JetBrains group, you can simply install the kubernetes plugin and use the interface as follows:
+
+![03.png](images/03.png)
+
+Otherwise, you need to use the kubernetes cli, this is an example:
+
+```shell
+kubectl --kubeconfig=/path/to/my/kube/config apply --filename=/path/to/my/file.yml
 ```
 
 #### NOTE:
