@@ -82,7 +82,7 @@ EOF
 
   echo -e " \033[32m✓\033[0m kong installed successfully"
 
-  echo -e " \033[32m»\033[0m configuring kong ingress controller"
+  echo -e " \033[32m»\033[0m setting up kong ingress controller"
 
   kubectl patch deployment -n kong ingress-kong -p '{"spec":{"template":{"spec":{"containers":[{"name":"proxy","ports":[{"containerPort":8000,"hostPort":80,"name":"proxy","protocol":"TCP"},{"containerPort":8443,"hostPort":443,"name":"proxy-ssl","protocol":"TCP"}]}],"nodeSelector":{"ingress-ready":"true"},"tolerations":[{"key":"node-role.kubernetes.io/control-plane","operator":"Equal","effect":"NoSchedule"},{"key":"node-role.kubernetes.io/master","operator":"Equal","effect":"NoSchedule"}]}}}}'
   kubectl patch service -n kong kong-proxy -p '{"spec":{"type":"NodePort"}}'
@@ -91,7 +91,7 @@ EOF
 }
 
 function delete() {
-  echo " \033[32m»\033[0m will delete these containers:"
+  echo -e " \033[32m»\033[0m will delete these containers:"
 
   docker ps --filter 'label=io.x-k8s.kind.cluster='"$CLUSTER_NAME"
 
